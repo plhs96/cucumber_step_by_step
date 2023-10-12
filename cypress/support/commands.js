@@ -5,11 +5,9 @@ Cypress.Commands.add('types', (locators = [], values = []) => {
         const value = values[index]
         cy.xpath(locator).should('exist').then(() => {
             cy.xpath(locator).focus().clear()
-            if (value != null && value != 'null') {
+            if (value != null && value != '') {
                 cy.xpath(locator).focus().type(value)
             }
-
-
         })
     }
 })
