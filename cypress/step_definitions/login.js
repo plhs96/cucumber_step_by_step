@@ -3,8 +3,8 @@ require('../support/actions/login')
 Given('Go to the login page', () => {
     cy.visit('/')
 })
-When('Login with valid account', ()=>{
-    cy.login('organization01@yopmail.com', '87654321')
+When('Login with {string} and {string}', (email, password)=>{
+    cy.login(email, password)
 })
 Then('Verrify URL', () =>{
     cy.url().should('not.include', 'login')
